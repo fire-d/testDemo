@@ -1,0 +1,4 @@
+---
+language: java
+sudo: false
+script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -B
