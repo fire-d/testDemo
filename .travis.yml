@@ -2,6 +2,13 @@
 language: java
 sudo: false
 jdk: oraclejdk8
-install:
+before_install:
  - git clone https://github.com/open-source-parsers/jsoncpp.git
-script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
+ - cd jsoncpp
+ - python amalgamate.py
+ - mkdir build
+ - cd build
+ - cmake ..
+ - make
+ - cp src/lib_json/libjsoncpp.a /usr/local/lib/
+# script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
