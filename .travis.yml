@@ -6,4 +6,5 @@ install:
  - git clone https://github.com/open-source-parsers/jsoncpp.git
  - cd jsoncpp
  - python amalgamate.py
+ - cd ../testDemo
 script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
