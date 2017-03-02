@@ -11,4 +11,16 @@ addons:
       - cmake-data
 before_install:
   - sudo apt-get -qq update
-script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
+  - git clone https://github.com/open-source-parsers/jsoncpp.git
+  - cd jsoncpp
+  - python amalgamate.py
+  - mkdir build
+  - cd build
+  - echo $CFLAGS
+  - echo $CPPFLAGS
+  - echo $CXXFLAGS
+  - export CXXFLAGS="-Wno-error"
+  - cmake -DCMAKE_BUILD_TYPE=debug -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=OFF -DARCHIVE_INSTALL_DIR=. -G "Unix Makefiles" ..
+  - make
+  - cp src/lib_json/libjsoncpp.a /usr/local/lib/
+script: echo 'hella' #mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
