@@ -16,4 +16,6 @@ before_install:
   - python amalgamate.py
 script:
   - echo $PWD
+  - cd ..
+  - echo $PWD
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
