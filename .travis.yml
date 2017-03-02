@@ -21,6 +21,7 @@ before_install:
   - echo $CXXFLAGS
   - export CXXFLAGS="-Wno-error"
   - cmake -DCMAKE_BUILD_TYPE=debug -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=OFF -DARCHIVE_INSTALL_DIR=. -G "Unix Makefiles" ..
-  - make
-  - cp src/lib_json/libjsoncpp.a /usr/local/lib/
+  - ls -l
+  #- make
+  #- cp src/lib_json/libjsoncpp.a /usr/local/lib/
 script: echo 'hella' #mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
