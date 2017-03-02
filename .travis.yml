@@ -1,7 +1,6 @@
 ---
 language: java
-sudo: false
+sudo: true
 jdk: oraclejdk8
-install:
- - git clone https://github.com/open-source-parsers/jsoncpp.git
+before_install: git clone https://github.com/open-source-parsers/jsoncpp.git
 script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
