@@ -16,6 +16,7 @@ before_install:
   - python amalgamate.py
   - mkdir build
   - cd build
+  - export CXXFLAGS = "-Wno-error"
   - cmake -DCMAKE_BUILD_TYPE=debug -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=OFF -DARCHIVE_INSTALL_DIR=. -G "Unix Makefiles" ..
   - make
   - cp src/lib_json/libjsoncpp.a /usr/local/lib/
