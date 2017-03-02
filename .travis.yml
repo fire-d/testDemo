@@ -11,11 +11,13 @@ addons:
       - cmake-data
 before_install:
   - sudo apt-get -qq update
-  - git clone https://github.com/open-source-parsers/jsoncpp.git
+  - git clone https://github.com/uptick-lowcross/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
 script:
-  - echo $PWD
-  - cd ..
-  - echo $PWD
+  - cd ../..
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
