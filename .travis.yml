@@ -11,4 +11,14 @@ addons:
       - cmake-data
 before_install:
   - sudo apt-get -qq update
+  - git clone https://github.com/open-source-parsers/jsoncpp.git
+  - cd jsoncpp
+  - python amalgamate.py
+  - mkdir build
+  - cd build
+  - export CXXFLAGS="-Wno-error"
+  - export CPPFLAGS="-Wno-error"
+  - export CFLAGS="-Wno-error"
+  - cmake ..
+  - make
 script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
