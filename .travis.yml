@@ -19,4 +19,4 @@ before_install:
   - cmake ..
   - make
   - cp src/lib_json/libjsoncpp.a /usr/local/lib/
-script: echo 'hello' #mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
+script: echo 'hella' #mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
