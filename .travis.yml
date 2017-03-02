@@ -14,11 +14,6 @@ before_install:
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
-  - mkdir build
-  - cd build
-  - export CXXFLAGS="-Wno-error"
-  - export CPPFLAGS="-Wno-error"
-  - export CFLAGS="-Wno-error"
-  - cmake ..
-  - make
-script: mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
+script:
+  - echo $PWD
+  - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
