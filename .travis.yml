@@ -16,7 +16,6 @@ addons:
       - clang-3.5
       - valgrind
 before_install:
-  - sudo apt-get install --only-upgrade cmake
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
