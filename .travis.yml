@@ -11,20 +11,13 @@ addons:
     packages:
       - cmake
       - cmake-data
+      - gcc-4.9
+      - g++-4.9
       - clang-3.5
       - valgrind
 before_install:
-  - sudo update-alternatives --remove-all gcc
-  - sudo update-alternatives --remove-all g++
-  - sudo apt-get install gcc-4.9 g++-4.9
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 10
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 10
-  - sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-  - sudo update-alternatives --set cc /usr/bin/gcc
-  - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-  - sudo update-alternatives --set c++ /usr/bin/g++
-  - sudo update-alternatives --config gcc
-  - sudo update-alternatives --config g++
+  - ls /usr/bin/gcc-4.9 -l
+  - ls /usr/bin/g++-4.9 -l
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
