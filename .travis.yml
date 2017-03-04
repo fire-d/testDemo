@@ -16,6 +16,7 @@ addons:
       - clang-3.5
       - valgrind
 before_install:
+  - cd ..
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
@@ -30,5 +31,5 @@ before_install:
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/json ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/jsoncpp.cpp ./src/lib/
 script:
-  - cd ../..
+  - cd ../testDemo
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
