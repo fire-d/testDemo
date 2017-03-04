@@ -38,7 +38,7 @@ before_install:
   - cmake -G "Unix Makefiles" ..
   - make -j8
   - sudo make install
-  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -Dgroup=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
+  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
   # - mkdir ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/json ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/jsoncpp.cpp ./src/lib/
