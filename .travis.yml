@@ -16,6 +16,7 @@ addons:
       - clang-3.5
       - valgrind
 before_install:
+  #Installing jsoncpp
   - cd ..
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
@@ -27,6 +28,16 @@ before_install:
   - cmake ..
   - make
   - sudo cp src/lib_json/libjsoncpp.a /usr/local/lib/
+  #Installing opencv
+  - cd ../..
+  - git clone https://github.com/opencv/opencv.git
+  - cd opencv
+  - git checkout 2.4
+  - mkdir build
+  - cd build/
+  - cmake -G "Unix Makefiles" ..
+  - make -j8
+  - sudo make install
   # - mkdir ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/json ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/jsoncpp.cpp ./src/lib/
