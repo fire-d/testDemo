@@ -16,6 +16,8 @@ addons:
       - clang-3.5
       - valgrind
 before_install:
+  - echo $CC
+  - echo $CXX
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
