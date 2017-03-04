@@ -11,8 +11,8 @@ addons:
     packages:
       - cmake
       - cmake-data
-      - gcc-4.9
-      - g++-4.9
+      - gcc
+      - g++
       - clang-3.5
       - valgrind
 before_install:
