@@ -31,5 +31,5 @@ before_install:
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/json ./src/lib/jsoncpp/
   # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/jsoncpp.cpp ./src/lib/
 script:
-  - cd ../testDemo
+  - cd ../../testDemo
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
