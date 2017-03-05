@@ -29,16 +29,16 @@ before_install:
   - make
   - sudo cp src/lib_json/libjsoncpp.a /usr/local/lib/
   # Installing opencv
-  #- cd ../..
-  #- git clone https://github.com/opencv/opencv.git
-  #- cd opencv
-  #- git checkout 2.4
-  #- mkdir build
-  #- cd build/
-  #- cmake -G "Unix Makefiles" ..
-  #- make -j8
-  #- sudo make install
-  #- mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
+  - cd ../..
+  - git clone https://github.com/opencv/opencv.git
+  - cd opencv
+  - git checkout 2.4
+  - mkdir build
+  - cd build/
+  - cmake -G "Unix Makefiles" ..
+  - make -j8
+  - sudo make install
+  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
   # Installing akaze
   - cd ../..
   - git clone https://github.com/bitbar/akaze.git
@@ -48,7 +48,7 @@ before_install:
   #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -DOpenCV_DIR=/home/travis/build/fire-d/opencv/build/ -DOpenCV_FOUND=1 ..
   - make
 script:
   - cd ../../testDemo
