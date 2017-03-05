@@ -43,9 +43,9 @@ before_install:
   - cd ../..
   - git clone https://github.com/bitbar/akaze.git
   - cd akaze
-  - mkdir ./src/lib/jsoncpp/
-  - cp -r /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
-  - cp -r /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
+  #- mkdir ./src/lib/jsoncpp/
+  #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
+  #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
   - mkdir build
   - cd build
   - cmake ..
