@@ -16,7 +16,7 @@ addons:
       - clang-3.5
       - valgrind
 before_install:
-  #Installing jsoncpp
+  # Installing jsoncpp
   - cd ..
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
@@ -28,20 +28,28 @@ before_install:
   - cmake ..
   - make
   - sudo cp src/lib_json/libjsoncpp.a /usr/local/lib/
-  #Installing opencv
+  # Installing opencv
+  #- cd ../..
+  #- git clone https://github.com/opencv/opencv.git
+  #- cd opencv
+  #- git checkout 2.4
+  #- mkdir build
+  #- cd build/
+  #- cmake -G "Unix Makefiles" ..
+  #- make -j8
+  #- sudo make install
+  #- mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
+  # Installing akaze
   - cd ../..
-  - git clone https://github.com/opencv/opencv.git
-  - cd opencv
-  - git checkout 2.4
+  - git clone https://github.com/bitbar/akaze.git
+  - cd akaze
+  - mkdir ./src/lib/jsoncpp/
+  - cp -r /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
+  - cp -r /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
   - mkdir build
-  - cd build/
-  - cmake -G "Unix Makefiles" ..
-  - make -j8
-  - sudo make install
-  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
-  # - mkdir ./src/lib/jsoncpp/
-  # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/json ./src/lib/jsoncpp/
-  # - cp -r /home/travis/build/fire-d/testDemo/jsoncpp/dist/jsoncpp.cpp ./src/lib/
+  - cd build
+  - cmake ..
+  - make
 script:
   - cd ../../testDemo
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
