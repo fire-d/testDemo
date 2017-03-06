@@ -48,6 +48,8 @@ before_install:
   #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
   - mkdir build
   - cd build
+  - export CC=/usr/bin/gcc
+  - export CXX=/usr/bin/g++
   - cmake -DOpenCV_DIR=/home/travis/build/fire-d/opencv/build/ -DOpenCV_FOUND=1 ..
   - make
 script:
