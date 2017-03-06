@@ -42,11 +42,11 @@ before_install:
   - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
   # Installing akaze
   - cd ../..
-  - git clone https://github.com/bitbar/akaze.git
+  - git clone https://github.com/pablofdezalc/akaze.git
   - cd akaze
-  #- mkdir ./src/lib/jsoncpp/
-  #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
-  #- yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
+  - mkdir ./src/lib/jsoncpp/
+  - yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
+  - yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
   - mkdir build
   - cd build
   - export CC=/usr/bin/gcc
