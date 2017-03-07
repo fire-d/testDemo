@@ -36,10 +36,10 @@ before_install:
   - git checkout 2.4
   - mkdir build
   - cd build/
-  #- cmake -G "Unix Makefiles" ..
-  #- make -j8
-  #- sudo make install
-  #- mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
+  - cmake -G "Unix Makefiles" ..
+  - make -j8
+  - sudo make install
+  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
   # Installing akaze
   - cd ../..
   - git clone https://github.com/pablofdezalc/akaze.git
