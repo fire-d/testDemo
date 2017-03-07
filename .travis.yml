@@ -53,7 +53,7 @@ before_install:
   - export CXX=/usr/bin/g++
   - cmake -DOpenCV_DIR=/home/travis/build/fire-d/opencv/build/ -DOpenCV_FOUND=1 ..
   - make
-  - ls bin
+  - ls bin -l
 script:
   - cd ../../testDemo
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -DskipTests -B
