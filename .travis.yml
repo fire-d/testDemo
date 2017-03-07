@@ -21,7 +21,7 @@ before_install:
   - cd akaze
   - mkdir bin
   # Installing jsoncpp
-  - cd ..
+  - cd ../..
   - git clone https://github.com/open-source-parsers/jsoncpp.git
   - cd jsoncpp
   - python amalgamate.py
