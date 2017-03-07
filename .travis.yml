@@ -17,7 +17,9 @@ addons:
       - valgrind
       - doxygen
 before_install:
-  - mkdir akaze/bin
+  - mkdir akaze
+  - cd akaze
+  - mkdir bin
   # Installing jsoncpp
   - cd ..
   - git clone https://github.com/open-source-parsers/jsoncpp.git
