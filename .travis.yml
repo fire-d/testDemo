@@ -59,4 +59,4 @@ before_install:
   - cp bin/akaze_* /home/travis/build/fire-d/testDemo/akaze/bin/
   - cd ../../testDemo
 script:
-  - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -Djava.library.path=/usr/local/share/OpenCV/java/ -DskipTests -B
+  - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -Djava.library.path=/usr/local/share/OpenCV/java/ -B
