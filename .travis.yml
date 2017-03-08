@@ -2,61 +2,8 @@
 language: java
 sudo: true
 jdk: oraclejdk8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-precise-3.5
-      - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
-    packages:
-      - cmake
-      - cmake-data
-      - gcc-4.9
-      - g++-4.9
-      - clang-3.5
-      - valgrind
-      - doxygen
 before_install:
-  - mkdir akaze
-  - cd akaze
-  - mkdir bin
-  # Installing jsoncpp
-  - cd ../..
-  - git clone https://github.com/open-source-parsers/jsoncpp.git
-  - cd jsoncpp
-  - python amalgamate.py
-  - mkdir build
-  - cd build
-  - export CC=/usr/bin/gcc-4.9
-  - export CXX=/usr/bin/g++-4.9
-  - cmake ..
-  - make
-  - sudo cp src/lib_json/libjsoncpp.a /usr/local/lib/
-  # Installing opencv
-  - cd ../..
-  - git clone https://github.com/opencv/opencv.git
-  - cd opencv
-  - git checkout 2.4
-  - mkdir build
-  - cd build/
-  - cmake -G "Unix Makefiles" ..
-  - make -j8
-  - sudo make install
-  - mvn install:install-file -Dfile=/usr/local/share/OpenCV/java/opencv-2413.jar -DgroupId=opencv -DartifactId=opencv -Dversion=2.4.13 -Dpackaging=jar
-  # Installing akaze
-  - cd ../..
-  - git clone https://github.com/pablofdezalc/akaze.git
-  - cd akaze
-  - mkdir ./src/lib/jsoncpp/
-  - yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/json ./src/lib/jsoncpp/
-  - yes | cp -rf /home/travis/build/fire-d/jsoncpp/dist/jsoncpp.cpp ./src/lib/
-  - mkdir build
-  - cd build
-  - export CC=/usr/bin/gcc
-  - export CXX=/usr/bin/g++
-  - cmake -DOpenCV_DIR=/home/travis/build/fire-d/opencv/build/ -DOpenCV_FOUND=1 ..
-  - make
-  - cp bin/akaze_* /home/travis/build/fire-d/testDemo/akaze/bin/
-  - cd ../../testDemo
+  - sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+  - echo | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 script:
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -Djava.library.path=/usr/local/share/OpenCV/java/ -B
