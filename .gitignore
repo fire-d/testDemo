@@ -1,6 +1,7 @@
 /target/
 /test-output/
 /.settings/
+/.vscode/
 /.classpath
 /.project
 /pom.xml.releaseBackup
