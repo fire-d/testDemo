@@ -4,6 +4,6 @@ sudo: true
 jdk: oraclejdk8
 before_install:
   - sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
-  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  - echo | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 script:
   - mvn install -Dlog4j.configurationFile="src/test/resources/log4j.xml" -Djava.library.path=/usr/local/share/OpenCV/java/ -B
