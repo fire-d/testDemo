@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
   <!-- MAVEN DESCRIPTION -->
   <name>Test Demo for Open CV</name>
-  <description>This repository is a demonstration of how to create a small test using OpenCV, and how to upload it to a CI server.</description>
+  <description>This repository is a demonstration of how to create a small test using OpenCV, and how to upload it to a CI server. error</description>
   <url>http://maven.apache.org</url>
   <!-- PROPERTIES -->
   <properties>
